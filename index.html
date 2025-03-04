@@ -3,12 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The web Browser</title>
+    <title>The Web Browser</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="browser-container">
         <header>
+            <!-- macOS Traffic Lights -->
+            <div class="header-controls">
+                <div class="control close"></div>
+                <div class="control minimize"></div>
+                <div class="control maximize"></div>
+            </div>
             <input type="text" id="address-bar" placeholder="Enter website name" />
             <button onclick="navigate()">Go</button>
         </header>
@@ -18,14 +24,20 @@
             <span>Loading...</span>
         </div>
         
-        <!-- Iframe to display the website -->
-        <iframe id="iframe" src="about:blank" style="width: 100%; height: 80vh;"></iframe>
+        <!-- Iframe with default start page -->
+        <iframe id="iframe" src="aka.html" style="width: 100%; height: 80vh;"></iframe>
+
+        <!-- macOS Window Resizer -->
+        <div class="mac-window-resizer">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </div>
 
     <script src="script.js"></script>
 </body>
 </html>
-
 
 
 
