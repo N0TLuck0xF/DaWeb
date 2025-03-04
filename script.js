@@ -5,23 +5,28 @@ function navigate() {
 
     var site = addressBar.value.trim().toLowerCase();
 
-    // Show the loading spinner while navigating
+    // Show the loading spinner
     loadingSpinner.style.display = "block";
 
     // Check for specific predefined sites
     if (site === "n0tluck0xf") {
-        // Load the site for "n0tluck0xf"
         iframe.src = "https://n0tluck0xf.github.io/";
+    } else if (site === "" || site === "home") {
+        iframe.src = "aka.html"; // Default to start page
     } else {
-        // If the site doesn't match, reset iframe to blank
-        iframe.src = "about:blank";
+        iframe.src = "aka.html"; // Fallback to start page if input is invalid
     }
 
-    // Once the iframe loads, hide the loading spinner
+    // Hide spinner when iframe loads
     iframe.onload = function() {
-        loadingSpinner.style.display = "none";  // Hide loading spinner
+        loadingSpinner.style.display = "none";
     };
 
-    // Clear the input field after navigation
+    // Clear the input field
     addressBar.value = "";
 }
+
+// Load the start page on initial load
+window.onload = function() {
+    document.getElementById("iframe").src = "aka.html";
+};
