@@ -7,10 +7,13 @@ function navigate() {
         'n0tluck0xf': 'https://n0tluck0xf.github.io/'
     };
 
+    // Remove ".m0d" if entered, just use the domain name
+    const siteName = input.replace('.m0d', '');
+
     // Check if the input matches the predefined site
-    if (domainMap[input]) {
-        iframe.src = domainMap[input];
-        document.getElementById('address-bar').value = input + '.m0d'; // Show the TLD-less name in the address bar
+    if (domainMap[siteName]) {
+        iframe.src = domainMap[siteName];
+        document.getElementById('address-bar').value = siteName; // Show the domain name without ".m0d" in the address bar
     } else {
         alert("Site not found.");
     }
