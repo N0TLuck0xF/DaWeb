@@ -1,11 +1,11 @@
-/* Reset to remove any default margin/padding */
+/* Reset defaults */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body and page layout */
+/* Body styling */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     background-color: #f1f1f1;
@@ -16,69 +16,67 @@ body {
     overflow: hidden;
 }
 
-/* Container for the entire browser */
+/* Browser container */
 .browser-container {
-    width: 80%;
+    width: 85%;
     height: 90%;
     background-color: #ffffff;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    overflow: hidden;
 }
 
-/* Header bar for address bar */
+/* Header styling */
 header {
     display: flex;
     align-items: center;
-    padding: 12px 20px;
-    background-color: #f7f7f7;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    border-bottom: 1px solid #e0e0e0;
+    padding: 15px;
+    background-color: #ececec;
+    border-bottom: 1px solid #d8d8d8;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     position: relative;
 }
 
-/* Window control buttons - close, minimize, maximize */
+/* macOS Traffic Lights */
 .header-controls {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     position: absolute;
-    top: 12px;
+    top: 50%;
     left: 15px;
+    transform: translateY(-50%);
 }
 
-.header-controls div {
-    width: 14px;
-    height: 14px;
+.control {
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
-    background-color: #b0b0b0;
-    transition: background-color 0.3s ease;
+    background-color: #d0d0d0;
+    transition: background-color 0.2s ease;
 }
 
-.header-controls div:hover {
-    background-color: #ff5f57; /* Close button color */
+.close { background-color: #ff5f57; }
+.minimize { background-color: #ffbd2e; }
+.maximize { background-color: #27c93f; }
+
+.control:hover {
+    filter: brightness(1.2);
 }
 
-.header-controls div:nth-child(2) {
-    background-color: #ffbd2e; /* Minimize button color */
-}
-
-.header-controls div:nth-child(3) {
-    background-color: #27c93f; /* Maximize button color */
-}
-
-/* Address bar input field (search bar) */
+/* Address bar */
 header input[type="text"] {
     flex-grow: 1;
-    padding: 10px 15px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #f7f7f7;
+    margin-left: 70px; /* Space for traffic lights */
+    padding: 8px 15px;
+    font-size: 14px;
+    border: 1px solid #d0d0d0;
+    border-radius: 20px;
+    background-color: #f5f5f5;
     outline: none;
-    transition: background-color 0.3s ease;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
 header input[type="text"]:focus {
@@ -86,82 +84,63 @@ header input[type="text"]:focus {
     border-color: #007aff;
 }
 
-/* Submit button (Go) */
+/* Go button */
 header button {
-    padding: 10px 20px;
+    margin-left: 10px;
+    padding: 8px 20px;
     background-color: #007aff;
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 20px;
     cursor: pointer;
-    font-size: 16px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-size: 14px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 header button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(0, 122, 255, 0.3);
+    background-color: #005bb5;
+    transform: scale(1.03);
 }
 
-/* Iframe for website content */
+/* Iframe */
 iframe {
     border: none;
-    border-radius: 8px;
     flex-grow: 1;
     background-color: #ffffff;
 }
 
-/* Links inside iframe */
-a {
-    color: #007aff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: #005bb5;
-}
-
-/* Mac window resizing bar at the bottom (for effect) */
-.mac-window-resizer {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    background-color: #f7f7f7;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-}
-
-.mac-window-resizer div {
-    width: 30px;
-    height: 3px;
-    background-color: #b0b0b0;
-    border-radius: 3px;
-    transition: background-color 0.3s ease;
-}
-
-.mac-window-resizer div:hover {
-    background-color: #333;
-}
-
-/* Spinner for loading animation */
+/* Loading spinner */
 .loading-spinner {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #007aff;
-    font-size: 24px;
+    font-size: 20px;
     animation: spinner 1s linear infinite;
+    display: none;
 }
 
-/* Keyframe for spinner animation */
 @keyframes spinner {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
+/* macOS Window Resizer */
+.mac-window-resizer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px 10px;
+    background-color: #ececec;
+    border-top: 1px solid #d8d8d8;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.mac-window-resizer div {
+    width: 20px;
+    height: 2px;
+    background-color: #b0b0b0;
+    border-radius: 2px;
+    margin-left: 5px;
+}
