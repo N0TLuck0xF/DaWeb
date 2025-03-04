@@ -1,76 +1,75 @@
-/* General Reset */
+/* Reset to remove any default margin/padding */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body and overall layout */
+/* Body and page layout */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-    background: #f1f1f1;
-    color: #333;
+    background-color: #f1f1f1;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     overflow: hidden;
-    margin: 0;
 }
 
-/* Container for the browser */
+/* Container for the entire browser */
 .browser-container {
     width: 80%;
     height: 90%;
-    background: #fff;
+    background-color: #ffffff;
     border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-/* Header (address bar) */
+/* Header bar for address bar */
 header {
     display: flex;
     align-items: center;
-    padding: 10px 20px;
-    background: #fff;
+    padding: 12px 20px;
+    background-color: #f7f7f7;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     border-bottom: 1px solid #e0e0e0;
     position: relative;
 }
 
-/* Window control buttons (MacOS-style close, minimize, maximize) */
+/* Window control buttons - close, minimize, maximize */
 .header-controls {
     display: flex;
     gap: 10px;
     position: absolute;
-    top: 10px;
-    left: 20px;
+    top: 12px;
+    left: 15px;
 }
 
 .header-controls div {
-    width: 12px;
-    height: 12px;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
     background-color: #b0b0b0;
     transition: background-color 0.3s ease;
 }
 
 .header-controls div:hover {
-    background-color: #ff5f57; /* Red for close button */
+    background-color: #ff5f57; /* Close button color */
 }
 
 .header-controls div:nth-child(2) {
-    background-color: #ffbd2e; /* Yellow for minimize button */
+    background-color: #ffbd2e; /* Minimize button color */
 }
 
 .header-controls div:nth-child(3) {
-    background-color: #27c93f; /* Green for maximize button */
+    background-color: #27c93f; /* Maximize button color */
 }
 
+/* Address bar input field (search bar) */
 header input[type="text"] {
     flex-grow: 1;
     padding: 10px 15px;
@@ -83,10 +82,11 @@ header input[type="text"] {
 }
 
 header input[type="text"]:focus {
-    background-color: #fff;
+    background-color: #ffffff;
     border-color: #007aff;
 }
 
+/* Submit button (Go) */
 header button {
     padding: 10px 20px;
     background-color: #007aff;
@@ -103,19 +103,18 @@ header button:hover {
     box-shadow: 0 0 15px rgba(0, 122, 255, 0.3);
 }
 
-/* Iframe (where the website content will appear) */
+/* Iframe for website content */
 iframe {
     border: none;
     border-radius: 8px;
     flex-grow: 1;
-    background-color: #fff;
+    background-color: #ffffff;
 }
 
-/* Link Styling */
+/* Links inside iframe */
 a {
     color: #007aff;
     text-decoration: none;
-    font-weight: normal;
     transition: color 0.3s ease;
 }
 
@@ -123,18 +122,7 @@ a:hover {
     color: #005bb5;
 }
 
-/* Loading Spinner */
-.loading-spinner {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #007aff;
-    font-size: 24px;
-    animation: spinner 1s linear infinite;
-}
-
-/* MacOS Window Resizer (Just for extra Mac feel) */
+/* Mac window resizing bar at the bottom (for effect) */
 .mac-window-resizer {
     display: flex;
     justify-content: space-between;
@@ -156,7 +144,18 @@ a:hover {
     background-color: #333;
 }
 
-/* Animation for loading spinner */
+/* Spinner for loading animation */
+.loading-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #007aff;
+    font-size: 24px;
+    animation: spinner 1s linear infinite;
+}
+
+/* Keyframe for spinner animation */
 @keyframes spinner {
     0% {
         transform: rotate(0deg);
@@ -166,16 +165,3 @@ a:hover {
     }
 }
 
-/* Animation for Header Controls */
-@keyframes controlHover {
-    0% {
-        background-color: #b0b0b0;
-    }
-    100% {
-        background-color: #ff5f57;
-    }
-}
-
-.header-controls div:hover {
-    animation: controlHover 0.3s ease;
-}
