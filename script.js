@@ -32,5 +32,3 @@ function navigate() {
     addressBar.value = "";
 }
 
-
-
