@@ -25,3 +25,4 @@ document.getElementById('address-bar').addEventListener('keypress', function (e)
         navigate();
     }
 });
+
