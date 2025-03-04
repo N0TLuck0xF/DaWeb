@@ -7,9 +7,9 @@
 
 /* Body and overall layout */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #0a0a0a, #2e2e2e);
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,44 +22,56 @@ body {
 .browser-container {
     width: 80%;
     height: 90%;
-    background-color: #ffffff;
+    background: rgba(0, 0, 0, 0.7);
     border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow: hidden;
 }
 
 /* Header (address bar) */
 header {
     display: flex;
     align-items: center;
-    background-color: #f1f1f1;
-    padding: 10px 20px;
+    background: linear-gradient(135deg, #ff0000, #ff7300);
+    padding: 15px 20px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
+    animation: glow 1.5s infinite alternate;
 }
 
 header input[type="text"] {
     flex-grow: 1;
-    padding: 10px;
+    padding: 12px;
     font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-right: 10px;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+header input[type="text"]:focus {
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 header button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #ff0000, #ff7300);
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 header button:hover {
-    background-color: #45a049;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
 }
 
 /* Iframe (where the website content will appear) */
@@ -67,6 +79,7 @@ iframe {
     border: none;
     border-radius: 10px;
     flex-grow: 1;
+    background-color: #111;
 }
 
 /* Loading Spinner */
@@ -75,14 +88,60 @@ iframe {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #333;
+    color: #ff7300;
     font-size: 24px;
+    animation: spinner 1s linear infinite;
 }
 
-/* Style for the iframe area */
-iframe {
-    width: 100%;
-    height: 80vh;
-    border: none;
-    border-radius: 10px;
+/* Link Styling */
+a {
+    color: #ff0000;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
+
+a:hover {
+    color: #ff7300;
+}
+
+/* Animation for header glow */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff7300;
+    }
+    100% {
+        text-shadow: 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff7300;
+    }
+}
+
+/* Animation for loading spinner */
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Extra cool gradient effect */
+@keyframes gradient {
+    0% {
+        background: #ff0000;
+    }
+    50% {
+        background: #ff7300;
+    }
+    100% {
+        background: #ff0000;
+    }
+}
+
+/* Hover effect for iframe */
+iframe:hover {
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+}
+
