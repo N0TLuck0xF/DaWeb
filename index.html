@@ -3,42 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>daweb</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Daweb Browser</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="browser-container">
-        <!-- Address Bar -->
-        <div class="address-bar-container">
-            <input type="text" id="address-bar" placeholder="Enter site..." />
-            <button id="go-button" onclick="navigate()">Go</button>
+        <header>
+            <input type="text" id="address-bar" placeholder="Enter website name" />
+            <button onclick="navigate()">Go</button>
+        </header>
+        
+        <!-- Loading Spinner -->
+        <div id="loading-spinner" class="loading-spinner" style="display: none;">
+            <span>Loading...</span>
         </div>
         
-        <!-- Content/Message below the Browser Bar -->
-        <div class="info-message" id="info-message">
-            <h2>This is Daweb</h2>
-            <p>
-                For all your life, you’ve been caught in the internet, drifting through endless pages, enslaved by the endless cycle of scrolling. You've been brainwashed into thinking that the "Web Browser" was the only way to access the *real* web. But guess what? 
-            </p>
-            <p>
-                Daweb is the only official web browser, and now you can access it from *within* the internet itself. That's right — a major modded leak to the *actual* web! Say goodbye to the boring, the standard, the expected. Welcome to Daweb. 
-            </p>
-            <p>
-                It's not just a browser. It's an experience. Welcome to the only *true* way to browse the web. It's like your browser, but cooler. And faster. And definitely not like any other. 
-            </p>
-            <p class="warning">Warning: You will never look at browsing the same way again.</p>
-        </div>
-        
-        <!-- Iframe for content -->
-        <div id="iframe-container">
-            <iframe id="iframe" src="" frameborder="0" allowfullscreen></iframe>
-            <div class="loading" id="loading-spinner" style="display:none;"></div>
-        </div>
+        <!-- Iframe to display the website -->
+        <iframe id="iframe" src="about:blank" style="width: 100%; height: 80vh;"></iframe>
     </div>
 
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
