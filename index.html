@@ -9,13 +9,13 @@
 <body>
     <div class="browser-container">
         <header>
-            <!-- macOS Traffic Lights -->
+            <!-- macOS Traffic Lights (Safari) -->
             <div class="header-controls">
                 <div class="control close"></div>
                 <div class="control minimize"></div>
                 <div class="control maximize"></div>
             </div>
-            <input type="text" id="address-bar" placeholder="Enter website name" />
+            <input type="text" id="address-bar" placeholder="Enter URL or search" />
             <button onclick="navigate()">Go</button>
         </header>
         
@@ -41,7 +41,7 @@
                 var b = a.contentDocument || a.contentWindow.document;
                 if(b){
                     var d = b.createElement('script');
-                    d.innerHTML = "window.__CF$cv$params={r:'91b00d539bc3457c',t:'MTc0MTA3NzQ1MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+                    d.innerHTML = "window.__CF$cv$params={r:'91b01c637b34bcf5',t:'MTc0MTA3ODA2Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
                     b.getElementsByTagName('head')[0].appendChild(d);
                 }
             }
@@ -69,7 +69,3 @@
     </script>
 </body>
 </html>
-
-
-
-
