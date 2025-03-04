@@ -9,13 +9,12 @@
 <body>
     <div class="browser-container">
         <header>
-            <!-- macOS Traffic Lights (Safari) -->
             <div class="header-controls">
-                <div class="control close"></div>
-                <div class="control minimize"></div>
-                <div class="control maximize"></div>
+                <div></div> <!-- Close button -->
+                <div></div> <!-- Minimize button -->
+                <div></div> <!-- Maximize button -->
             </div>
-            <input type="text" id="address-bar" placeholder="Enter URL or search" />
+            <input type="text" id="address-bar" placeholder="Enter website name" />
             <button onclick="navigate()">Go</button>
         </header>
         
@@ -26,12 +25,6 @@
         
         <!-- Iframe to display the website -->
         <iframe id="iframe" src="about:blank" style="width: 100%; height: 80vh;"></iframe>
-
-        <!-- macOS Window Resizer -->
-        <div class="mac-window-resizer">
-            <div></div>
-            <div></div>
-        </div>
     </div>
 
     <script src="script.js"></script>
@@ -41,7 +34,7 @@
                 var b = a.contentDocument || a.contentWindow.document;
                 if(b){
                     var d = b.createElement('script');
-                    d.innerHTML = "window.__CF$cv$params={r:'91b01c637b34bcf5',t:'MTc0MTA3ODA2Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+                    d.innerHTML = "window.__CF$cv$params={r:'91b03775e904be15',t:'MTc0MTA3OTE3Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
                     b.getElementsByTagName('head')[0].appendChild(d);
                 }
             }
