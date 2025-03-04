@@ -96,21 +96,12 @@ body {
     top: 50px; /* Adjusted to stay below the address bar */
     z-index: 10; /* Ensure it is above the iframe */
     display: block; /* Show it by default */
+    transition: opacity 0.5s ease-in-out;
 }
 
-.info-message h2 {
-    color: #007aff;
-    font-size: 24px;
-    margin-bottom: 15px;
-}
-
-.info-message p {
-    line-height: 1.6;
-}
-
-.warning {
-    color: #d9534f;
-    font-weight: bold;
+/* Hide message when iframe is loaded */
+#iframe[src] + .info-message {
+    display: none;
 }
 
 /* Loading Spinner */
@@ -132,8 +123,4 @@ body {
     100% { transform: rotate(360deg); }
 }
 
-/* Hide the info-message when site is loaded */
-#iframe[src] + .info-message {
-    display: none;
-}
 
