@@ -71,11 +71,40 @@ body {
     overflow: hidden;
 }
 
+/* Iframe */
 #iframe {
     width: 100%;
     height: 100%;
     border: none;
     border-radius: 0 0 16px 16px;
+}
+
+/* Info Message Styling */
+.info-message {
+    background-color: #f8f8f8;
+    padding: 20px;
+    color: #333;
+    font-size: 18px;
+    text-align: center;
+    margin: 0 10px;
+    border-radius: 12px;
+    border-top: 2px solid #ccc;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.info-message h2 {
+    color: #007aff;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.info-message p {
+    line-height: 1.6;
+}
+
+.warning {
+    color: #d9534f;
+    font-weight: bold;
 }
 
 /* Loading Spinner */
