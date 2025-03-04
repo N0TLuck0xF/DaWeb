@@ -3,19 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>daweb Browser</title>
-    <link rel="stylesheet" href="style.css">
+    <title>daweb</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div id="url-bar">
-            <input type="text" id="address-bar" placeholder="Enter site name..." />
-            <button onclick="navigate()">Go</button>
+    <div class="browser-container">
+        <!-- Address Bar -->
+        <div class="address-bar-container">
+            <input type="text" id="address-bar" placeholder="Enter site..." />
+            <button id="go-button" onclick="navigate()">Go</button>
         </div>
-    </header>
-    <div id="browser-window">
-        <iframe id="iframe" width="100%" height="600px"></iframe>
+        
+        <!-- Iframe for content -->
+        <div id="iframe-container">
+            <iframe id="iframe" src="" frameborder="0" allowfullscreen></iframe>
+            <div class="loading" id="loading-spinner" style="display:none;"></div>
+        </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
+
