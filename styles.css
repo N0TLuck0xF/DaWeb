@@ -1,14 +1,14 @@
-/* Reset defaults */
+/* Reset to remove any default margin/padding */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body styling */
+/* Body and page layout */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-    background-color: #f1f1f1;
+    background-color: #f5f5f7; /* Safari’s light gray background */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,97 +16,104 @@ body {
     overflow: hidden;
 }
 
-/* Browser container */
+/* Container for the entire browser */
 .browser-container {
     width: 85%;
-    height: 90%;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    height: 90vh;
+    background: linear-gradient(to bottom, #ffffff, #f9f9f9); /* Subtle gradient like Safari */
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Softer shadow */
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow: hidden; /* Cleaner edges */
 }
 
-/* Header styling */
+/* Header bar (Safari toolbar) */
 header {
     display: flex;
     align-items: center;
-    padding: 15px;
-    background-color: #ececec;
-    border-bottom: 1px solid #d8d8d8;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    padding: 10px 15px;
+    background: rgba(242, 242, 242, 0.9); /* Slightly translucent toolbar */
+    backdrop-filter: blur(10px); /* macOS blur effect */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     position: relative;
 }
 
-/* macOS Traffic Lights */
+/* Window control buttons (Traffic Lights) */
 .header-controls {
     display: flex;
     gap: 8px;
     position: absolute;
     top: 50%;
-    left: 15px;
+    left: 12px;
     transform: translateY(-50%);
 }
 
-.control {
+.header-controls div {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: #d0d0d0;
-    transition: background-color 0.2s ease;
+    transition: all 0.2s ease;
 }
 
-.close { background-color: #ff5f57; }
-.minimize { background-color: #ffbd2e; }
-.maximize { background-color: #27c93f; }
-
-.control:hover {
-    filter: brightness(1.2);
+.control.close {
+    background-color: #ff5f56;
 }
 
-/* Address bar */
+.control.minimize {
+    background-color: #ffbd2e;
+}
+
+.control.maximize {
+    background-color: #27c93f;
+}
+
+.header-controls div:hover {
+    filter: brightness(90%);
+}
+
+/* Address bar input field */
 header input[type="text"] {
     flex-grow: 1;
     margin-left: 70px; /* Space for traffic lights */
-    padding: 8px 15px;
+    padding: 8px 15px 8px 35px; /* Extra padding for icon-like feel */
     font-size: 14px;
-    border: 1px solid #d0d0d0;
+    border: none;
     border-radius: 20px;
-    background-color: #f5f5f5;
+    background: rgba(255, 255, 255, 0.95) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23787878" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>') no-repeat 10px center; /* Magnifying glass icon */
+    background-size: 16px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
     outline: none;
-    transition: border-color 0.2s ease, background-color 0.2s ease;
+    transition: box-shadow 0.2s ease;
 }
 
 header input[type="text"]:focus {
-    background-color: #ffffff;
-    border-color: #007aff;
+    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.3);
 }
 
-/* Go button */
+/* Submit button (Go) */
 header button {
     margin-left: 10px;
-    padding: 8px 20px;
+    padding: 8px 18px;
     background-color: #007aff;
     color: white;
     border: none;
-    border-radius: 20px;
+    border-radius: 20px; /* More rounded like Safari */
     cursor: pointer;
     font-size: 14px;
-    transition: background-color 0.2s ease, transform 0.2s ease;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
 }
 
 header button:hover {
-    background-color: #005bb5;
-    transform: scale(1.03);
+    background-color: #0062cc;
 }
 
-/* Iframe */
+/* Iframe for website content */
 iframe {
     border: none;
     flex-grow: 1;
-    background-color: #ffffff;
+    background-color: #fff;
 }
 
 /* Loading spinner */
@@ -115,32 +122,27 @@ iframe {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #007aff;
-    font-size: 20px;
-    animation: spinner 1s linear infinite;
-    display: none;
+    color: #878787;
+    font-size: 18px;
+    font-weight: 500;
 }
 
-@keyframes spinner {
-    0% { transform: translate(-50%, -50%) rotate(0deg); }
-    100% { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-/* macOS Window Resizer */
+/* Mac window resizer */
 .mac-window-resizer {
+    padding: 5px 10px;
+    background: transparent;
     display: flex;
     justify-content: flex-end;
-    padding: 5px 10px;
-    background-color: #ececec;
-    border-top: 1px solid #d8d8d8;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
 }
 
 .mac-window-resizer div {
-    width: 20px;
+    width: 15px;
     height: 2px;
-    background-color: #b0b0b0;
-    border-radius: 2px;
-    margin-left: 5px;
+    background-color: #d2d2d2;
+    transform: rotate(45deg);
+}
+
+.mac-window-resizer div:nth-child(2) {
+    transform: rotate(-45deg);
+    margin-left: -10px;
 }
