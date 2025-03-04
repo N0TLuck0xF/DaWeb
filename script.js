@@ -1,38 +1,36 @@
 function navigate() {
-    const input = document.getElementById('address-bar').value.trim().toLowerCase();
-    const iframe = document.getElementById('iframe');
-    const loadingSpinner = document.getElementById('loading-spinner');
+    var addressBar = document.getElementById("address-bar");
+    var iframe = document.getElementById("iframe");
+    var infoMessage = document.getElementById("info-message");
+    var loadingSpinner = document.getElementById("loading-spinner");
 
-    // Show loading spinner while navigating
-    loadingSpinner.style.display = 'block';
+    var site = addressBar.value.trim().toLowerCase();
 
-    // Map "n0tluck0xf" to the specific URL
-    const domainMap = {
-        'n0tluck0xf': 'https://n0tluck0xf.github.io/'
-    };
+    // Show the loading spinner while navigating
+    loadingSpinner.style.display = "block";
+    
+    // Hide the info message if a site is being loaded
+    infoMessage.style.display = "none";
 
-    // Remove ".m0d" if entered, just use the domain name
-    const siteName = input.replace('.m0d', '');
-
-    // Check if the input matches the predefined site
-    if (domainMap[siteName]) {
-        iframe.src = domainMap[siteName];
-        document.getElementById('address-bar').value = siteName; // Show the domain name without ".m0d" in the address bar
+    // Check for specific predefined sites
+    if (site === "n0tluck0xf") {
+        // Load the site for "n0tluck0xf"
+        iframe.src = "https://n0tluck0xf.github.io/";
     } else {
-        alert("Site not found.");
+        // If the site doesn't match, reset iframe to blank and show the info message
+        iframe.src = "about:blank";
+        infoMessage.style.display = "block";  // Show the message if the site is not found
     }
 
-    // Hide the loading spinner once the iframe is loaded
+    // Once the iframe loads, hide the loading spinner and the message
     iframe.onload = function() {
-        loadingSpinner.style.display = 'none';
+        loadingSpinner.style.display = "none";  // Hide loading spinner
+        infoMessage.style.display = "none";  // Hide info message once content is loaded
     };
+
+    // Clear the input field after navigation
+    addressBar.value = "";
 }
 
-// Allow pressing "Enter" to navigate
-document.getElementById('address-bar').addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-        navigate();
-    }
-});
 
 
