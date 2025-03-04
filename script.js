@@ -1,6 +1,10 @@
 function navigate() {
     const input = document.getElementById('address-bar').value.trim().toLowerCase();
     const iframe = document.getElementById('iframe');
+    const loadingSpinner = document.getElementById('loading-spinner');
+
+    // Show loading spinner while navigating
+    loadingSpinner.style.display = 'block';
 
     // Map "n0tluck0xf" to the specific URL
     const domainMap = {
@@ -17,6 +21,11 @@ function navigate() {
     } else {
         alert("Site not found.");
     }
+
+    // Hide the loading spinner once the iframe is loaded
+    iframe.onload = function() {
+        loadingSpinner.style.display = 'none';
+    };
 }
 
 // Allow pressing "Enter" to navigate
@@ -25,4 +34,5 @@ document.getElementById('address-bar').addEventListener('keypress', function (e)
         navigate();
     }
 });
+
 
